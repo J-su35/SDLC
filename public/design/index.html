@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Farmart Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="header-main page-width">
+          <a class="brand" href="#" aria-label="Farmart home">
+            <span class="brand-mark">🌾</span>
+            <span>Farmart</span>
+          </a>
+
+          <form class="search" action="#">
+            <label class="sr-only" for="language">Search language</label>
+            <select id="language" defaultValue="all">
+              <option value="all">ALL LANGUAGE</option>
+              <option value="en">English</option>
+            </select>
+            <label class="sr-only" for="search-products">Search products</label>
+            <input id="search-products" name="q" placeholder="Search products..." />
+            <button class="search-button" type="submit" aria-label="Search">⌕</button>
+          </form>
+
+          <div class="header-actions">
+            <a class="phone" href="tel:88003326566">8 800 332 65-66</a>
+            <button class="icon-button" aria-label="Your account">👤</button>
+            <button class="icon-button notification" aria-label="Wishlist, 2 items">
+              ❤️<span>2</span>
+            </button>
+            <button class="icon-button notification cart-icon" aria-label="Cart, 3 items">
+              🛒<span>3</span>
+            </button>
+            <strong class="cart-total">$3,099.00</strong>
+          </div>
+        </div>
+
+        <nav class="navigation">
+          <div class="page-width nav-inner">
+            <a class="all-categories" href="#categories">▦ SHOP ALL CATEGORY</a>
+            <div class="nav-links">
+              <a href="#">Deals Today</a>
+              <a href="#">Special Prices</a>
+              <a href="#">Fresh</a>
+              <a href="#">Frozen</a>
+              <a href="#">Bakery</a>
+              <a href="#">Shop</a>
+              <a href="#">Blog</a>
+              <a href="#">Pages</a>
+              <a href="#">Shop +</a>
+            </div>
+            <a class="recently-viewed" href="#">◉ Recently Viewed</a>
+          </div>
+        </nav>
+      </header>
+
+      <main class="page-width page-content">
+        <section class="promotions" aria-label="Current promotions">
+          <article class="promo promo-drink">
+            <div class="promo-copy">
+              <span class="eyebrow">FRESH DRINK</span>
+              <h1>Active Summer With<br />Juice Milk 300ml</h1>
+              <p>New arrivals with natural fresh juice milk,<br class="desktop-break" /> customize the varieties.</p>
+              <a class="button button-orange" href="#">Shop Now</a>
+            </div>
+            <span class="promo-art juice-art" aria-hidden="true">🧃</span>
+          </article>
+
+          <article class="promo promo-sale">
+            <div class="promo-copy">
+              <span class="eyebrow">SYNTHETIC GOODS</span>
+              <h2>20% SALE OFF</h2>
+              <p>Synthetic Goods<br />Net 2.0 Oz</p>
+              <a class="button button-light" href="#">Shop Now</a>
+            </div>
+            <span class="promo-art box-art" aria-hidden="true">📦</span>
+          </article>
+        </section>
+
+        <section class="content-section categories-section" id="categories">
+          <div class="section-heading">
+            <h2>Browse by Category</h2>
+            <a href="#">All Categories <span aria-hidden="true">⟶</span></a>
+          </div>
+          <div class="category-grid">
+            <a class="category-card" href="#">
+              <span class="category-icon" aria-hidden="true">🥦</span>
+              <span>Fruits &amp;<br />Vegetables</span>
+            </a>
+            <a class="category-card category-active" href="#">
+              <span class="category-icon" aria-hidden="true">🍞</span>
+              <span>Breads &amp;<br />Sweets</span>
+            </a>
+            <a class="category-card" href="#">
+              <span class="category-icon" aria-hidden="true">🍤</span>
+              <span>Frozen<br />Seafoods</span>
+            </a>
+            <a class="category-card" href="#">
+              <span class="category-icon" aria-hidden="true">🥩</span>
+              <span>Raw Meats</span>
+            </a>
+            <a class="category-card" href="#">
+              <span class="category-icon" aria-hidden="true">🍷</span>
+              <span>Wines &amp;<br />Alcohol Drinks</span>
+            </a>
+            <a class="category-card" href="#">
+              <span class="category-icon" aria-hidden="true">☕</span>
+              <span>Coffees and<br />Teas</span>
+            </a>
+            <a class="category-card" href="#">
+              <span class="category-icon" aria-hidden="true">🥛</span>
+              <span>Milks and<br />Dairies</span>
+            </a>
+            <a class="category-card" href="#">
+              <span class="category-icon" aria-hidden="true">🐾</span>
+              <span>Pet Foods</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="content-section featured-section" id="featured">
+          <div class="section-heading">
+            <h2>Featured Brands</h2>
+            <a href="#">All Brands <span aria-hidden="true">⟶</span></a>
+          </div>
+
+          <div class="featured-grid">
+            <a class="featured-card lavender" href="#">
+              <span class="featured-emoji" aria-hidden="true">🍿</span>
+              <span class="eyebrow">SNACKS</span>
+              <strong>Popcorn</strong>
+            </a>
+            <a class="featured-card cream" href="#">
+              <span class="featured-emoji" aria-hidden="true">🍵</span>
+              <span class="eyebrow">ORGANIC</span>
+              <strong>Fresh soup</strong>
+            </a>
+            <a class="featured-card mint" href="#">
+              <span class="featured-emoji" aria-hidden="true">🥤</span>
+              <span class="eyebrow">SODA CAN BOX</span>
+              <strong>Berry soda</strong>
+            </a>
+            <a class="featured-card green" href="#">
+              <span class="featured-emoji" aria-hidden="true">🌭</span>
+              <span class="eyebrow">ORGANIC</span>
+              <strong>Hot dog</strong>
+            </a>
+          </div>
+        </section>
+
+        <section class="system-section" aria-labelledby="system-title">
+          <div class="section-heading">
+            <h2 id="system-title">Design System</h2>
+          </div>
+
+          <div class="system-grid">
+            <div class="panel">
+              <h3>Palette</h3>
+              <div class="swatch-grid">
+                <div class="swatch"><span class="chip white"></span><strong>Background</strong><small>#FFFFFF</small></div>
+                <div class="swatch"><span class="chip ink"></span><strong>Text</strong><small>#283342</small></div>
+                <div class="swatch"><span class="chip muted"></span><strong>Muted</strong><small>#788291</small></div>
+                <div class="swatch"><span class="chip orange"></span><strong>Accent</strong><small>#FF7417</small></div>
+                <div class="swatch"><span class="chip yellow"></span><strong>Yellow</strong><small>#FFCC0B</small></div>
+                <div class="swatch"><span class="chip light"></span><strong>Light</strong><small>#F2F3F5</small></div>
+                <div class="swatch"><span class="chip border"></span><strong>Border</strong><small>#ECEEF1</small></div>
+                <div class="swatch"><span class="chip cream"></span><strong>Warm</strong><small>#FFF8F1</small></div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <h3>Typography</h3>
+              <div class="type-stack">
+                <p class="type-label">Eyebrow / uppercase</p>
+                <h4>Fresh Drink</h4>
+                <p class="body-copy">Clear, readable commerce UI with practical labels and confident product hierarchy.</p>
+                <div class="button-preview">
+                  <button class="button button-orange">Primary CTA</button>
+                  <button class="button button-light">Secondary</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <h3>Components</h3>
+              <div class="component-row">
+                <div class="mini-card category-mini"><span>🥬</span><small>Category</small></div>
+                <div class="mini-card feature-mini"><span>🧃</span><small>Promo</small></div>
+                <div class="mini-card badge-mini"><span>NEW</span></div>
+              </div>
+              <div class="component-attributes">
+                <span>Rounded 7px cards</span>
+                <span>Subtle hover states</span>
+                <span>Warm orange CTA</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="dialog-demo" aria-labelledby="dialog-title">
+          <div class="section-heading">
+            <h2 id="dialog-title">Dialog</h2>
+          </div>
+
+          <div class="dialog-trigger-wrap">
+            <button class="button button-orange" type="button">Open dialog</button>
+            <a class="button button-light" href="./product.html">View product detail</a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="dialog-backdrop" aria-hidden="true">
+      <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-heading">
+        <button class="dialog-close" type="button" aria-label="Close dialog">×</button>
+        <div class="dialog-product">
+          <div class="dialog-product-art">🥬</div>
+          <div>
+            <span class="dialog-label">FRESH PICK</span>
+            <h3 id="dialog-heading">Organic Salad Box</h3>
+            <p>Leafy greens, herbs, and crunchy vegetables for a quick fresh meal.</p>
+          </div>
+        </div>
+
+        <div class="dialog-qty">
+          <span>Quantity</span>
+          <div class="quantity-picker" aria-label="Quantity selector">
+            <button type="button" aria-label="Decrease quantity">−</button>
+            <strong>1</strong>
+            <button type="button" aria-label="Increase quantity">+</button>
+          </div>
+        </div>
+
+        <div class="dialog-meta">
+          <div>
+            <span class="meta-label">Price</span>
+            <strong>$18.90</strong>
+          </div>
+          <div>
+            <span class="meta-label">Delivery</span>
+            <strong>Today, 4:30 PM</strong>
+          </div>
+        </div>
+
+        <div class="dialog-actions">
+          <button class="button button-light" type="button">Continue</button>
+          <button class="button button-orange" type="button">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

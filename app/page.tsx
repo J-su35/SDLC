@@ -1,69 +1,135 @@
-import Image from "next/image";
+const categories = [
+  { icon: "🥦", name: <>Fruits &amp;<br />Vegetables</> },
+  { icon: "🍞", name: <>Breads &amp;<br />Sweets</>, active: true },
+  { icon: "🍤", name: <>Frozen<br />Seafoods</> },
+  { icon: "🥩", name: <>Raw Meats</> },
+  { icon: "🍷", name: <>Wines &amp;<br />Alcohol Drinks</> },
+  { icon: "☕", name: <>Coffees and<br />Teas</> },
+  { icon: "🥛", name: <>Milks and<br />Dairies</> },
+  { icon: "🐾", name: <>Pet Foods</> },
+];
+
+const featured = [
+  { label: "SNACKS", name: "Popcorn", icon: "🍿", color: "lavender" },
+  { label: "ORGANIC", name: "Fresh soup", icon: "🍵", color: "cream" },
+  { label: "SODA CAN BOX", name: "Berry soda", icon: "🥤", color: "mint" },
+  { label: "ORGANIC", name: "Hot dog", icon: "🌭", color: "green" },
+];
+
+const navItems = [
+  "Deals Today",
+  "Special Prices",
+  "Fresh",
+  "Frozen",
+  "Bakery",
+  "Shop",
+  "Blog",
+  "Pages",
+  "Shop +",
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
+    <main className="storefront">
+      <header className="site-header">
+        <div className="header-main page-width">
+          <a className="brand" href="#" aria-label="Farmart home">
+            <span className="brand-mark">🌾</span>
+            <span>Farmart</span>
           </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+          <form className="search" action="#">
+            <label className="sr-only" htmlFor="language">Search language</label>
+            <select id="language" defaultValue="all">
+              <option value="all">ALL LANGUAGE</option>
+              <option value="en">English</option>
+            </select>
+            <label className="sr-only" htmlFor="search-products">Search products</label>
+            <input id="search-products" name="q" placeholder="Search products..." />
+            <button className="search-button" type="submit" aria-label="Search">⌕</button>
+          </form>
+
+          <div className="header-actions">
+            <a className="phone" href="tel:88003326566">8 800 332 65-66</a>
+            <button className="icon-button" aria-label="Your account">👤</button>
+            <button className="icon-button notification" aria-label="Wishlist, 2 items">
+              ❤️<span>2</span>
+            </button>
+            <button className="icon-button notification cart-icon" aria-label="Cart, 3 items">
+              🛒<span>3</span>
+            </button>
+            <strong className="cart-total">$3,099.00</strong>
+          </div>
         </div>
-      </main>
-    </div>
+
+        <nav className="navigation">
+          <div className="page-width nav-inner">
+            <a className="all-categories" href="#categories">▦&nbsp; SHOP ALL CATEGORY</a>
+            <div className="nav-links">
+              {navItems.map((item) => <a href="#featured" key={item}>{item}</a>)}
+            </div>
+            <a className="recently-viewed" href="#featured">◉ Recently Viewed</a>
+          </div>
+        </nav>
+      </header>
+
+      <div className="page-width page-content">
+        <section className="promotions" aria-label="Current promotions">
+          <article className="promo promo-drink">
+            <div className="promo-copy">
+              <span className="eyebrow">FRESH DRINK</span>
+              <h1>Active Summer With<br />Juice Milk 300ml</h1>
+              <p>New arrivals with natural fresh juice milk,<br className="desktop-break" /> customize the varieties.</p>
+              <a className="button button-orange" href="#featured">Shop Now</a>
+            </div>
+            <span className="promo-art juice-art" aria-hidden="true">🧃</span>
+          </article>
+          <article className="promo promo-sale">
+            <div className="promo-copy">
+              <span className="eyebrow">SYNTHETIC GOODS</span>
+              <h2>20% SALE OFF</h2>
+              <p>Synthetic Goods<br />Net 2.0 Oz</p>
+              <a className="button button-light" href="#featured">Shop Now</a>
+            </div>
+            <span className="promo-art box-art" aria-hidden="true">📦</span>
+          </article>
+        </section>
+
+        <section className="content-section categories-section" id="categories">
+          <div className="section-heading">
+            <h2>Browse by Category</h2>
+            <a href="#categories">All Categories <span aria-hidden="true">⟶</span></a>
+          </div>
+          <div className="category-grid">
+            {categories.map((category, index) => (
+              <a
+                className={`category-card${category.active ? " category-active" : ""}`}
+                href="#featured"
+                key={index}
+              >
+                <span className="category-icon" aria-hidden="true">{category.icon}</span>
+                <span>{category.name}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <section className="content-section featured-section" id="featured">
+          <div className="section-heading">
+            <h2>Featured Brands</h2>
+            <a href="#featured">All Brands <span aria-hidden="true">⟶</span></a>
+          </div>
+          <div className="featured-grid">
+            {featured.map((item) => (
+              <a className={`featured-card ${item.color}`} href="#categories" key={item.name}>
+                <span className="featured-emoji" aria-hidden="true">{item.icon}</span>
+                <span className="eyebrow">{item.label}</span>
+                <strong>{item.name}</strong>
+              </a>
+            ))}
+          </div>
+        </section>
+      </div>
+    </main>
   );
 }

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Farmart Product Detail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="header-main page-width">
+          <a class="brand" href="./index.html" aria-label="Farmart home">
+            <span class="brand-mark">🌾</span>
+            <span>Farmart</span>
+          </a>
+
+          <form class="search" action="#">
+            <label class="sr-only" for="language-detail">Search language</label>
+            <select id="language-detail" defaultValue="all">
+              <option value="all">ALL LANGUAGE</option>
+              <option value="en">English</option>
+            </select>
+            <label class="sr-only" for="search-products-detail">Search products</label>
+            <input id="search-products-detail" name="q" placeholder="Search products..." />
+            <button class="search-button" type="submit" aria-label="Search">⌕</button>
+          </form>
+
+          <div class="header-actions">
+            <a class="phone" href="tel:88003326566">8 800 332 65-66</a>
+            <button class="icon-button" aria-label="Your account">👤</button>
+            <button class="icon-button notification" aria-label="Wishlist, 2 items">
+              ❤️<span>2</span>
+            </button>
+            <button class="icon-button notification cart-icon" aria-label="Cart, 3 items">
+              🛒<span>3</span>
+            </button>
+            <strong class="cart-total">$3,099.00</strong>
+          </div>
+        </div>
+
+        <nav class="navigation">
+          <div class="page-width nav-inner">
+            <a class="all-categories" href="./index.html#categories">▦ SHOP ALL CATEGORY</a>
+            <div class="nav-links">
+              <a href="#">Deals Today</a>
+              <a href="#">Special Prices</a>
+              <a href="#">Fresh</a>
+              <a href="#">Frozen</a>
+              <a href="#">Bakery</a>
+              <a href="#">Shop</a>
+              <a href="#">Blog</a>
+              <a href="#">Pages</a>
+              <a href="#">Shop +</a>
+            </div>
+            <a class="recently-viewed" href="#">◉ Recently Viewed</a>
+          </div>
+        </nav>
+      </header>
+
+      <main class="page-width product-page">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="./index.html">Home</a>
+          <span>›</span>
+          <a href="./index.html#categories">Fresh</a>
+          <span>›</span>
+          <span class="current">Organic Salad Box</span>
+        </nav>
+
+        <section class="product-layout" aria-label="Product details">
+          <div class="product-gallery panel">
+            <div class="gallery-badges">
+              <span class="product-chip chip-orange">Fresh Pick</span>
+              <span class="product-chip chip-soft">Organic</span>
+            </div>
+
+            <div class="gallery-hero">
+              <span aria-hidden="true">🥬</span>
+            </div>
+
+            <div class="thumb-row" aria-label="Product thumbnails">
+              <button type="button" class="thumb active"><span>🥬</span></button>
+              <button type="button" class="thumb"><span>🍋</span></button>
+              <button type="button" class="thumb"><span>🌿</span></button>
+            </div>
+          </div>
+
+          <div class="product-summary">
+            <div class="product-topline">
+              <span class="eyebrow product-eyebrow">Farmart fresh</span>
+              <div class="rating-pill" aria-label="Rated 4.8 out of 5">
+                <span>★</span>
+                <strong>4.8</strong>
+                <small>(132 reviews)</small>
+              </div>
+            </div>
+
+            <h1>Organic Salad Box</h1>
+            <p class="product-subtitle">Leafy greens, herbs, and crunchy vegetables for a quick fresh meal.</p>
+
+            <div class="price-row">
+              <div>
+                <span class="price-label">Price</span>
+                <div class="price-wrap">
+                  <strong>$18.90</strong>
+                  <span class="old-price">$24.00</span>
+                </div>
+              </div>
+              <span class="save-badge">Save 21%</span>
+            </div>
+
+            <div class="stock-row">
+              <span class="dot"></span>
+              In stock · ships today
+            </div>
+
+            <div class="variant-row">
+              <span class="variant-label">Size</span>
+              <div class="variant-list">
+                <button type="button" class="variant selected">Classic</button>
+                <button type="button" class="variant">Family</button>
+                <button type="button" class="variant">Protein+</button>
+              </div>
+            </div>
+
+            <div class="purchase-row">
+              <div class="quantity-picker" aria-label="Quantity selector">
+                <button type="button" aria-label="Decrease quantity">−</button>
+                <strong>1</strong>
+                <button type="button" aria-label="Increase quantity">+</button>
+              </div>
+
+              <button class="button button-orange" type="button">Add to cart</button>
+            </div>
+
+            <div class="secondary-actions">
+              <button class="button button-light" type="button">Save for later</button>
+              <button class="button button-light" type="button">Buy now</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="details-grid" aria-label="Product information">
+          <article class="panel content-panel">
+            <h2>Product details</h2>
+            <ul>
+              <li>Freshly packed salad greens and herbs selected for crisp texture.</li>
+              <li>Ready-to-eat mix with a balanced composition of lettuce, spinach, and arugula.</li>
+              <li>Comes in a resealable box designed to keep ingredients crisp and clean.</li>
+            </ul>
+          </article>
+
+          <aside class="panel info-panel">
+            <h2>Delivery & nutrition</h2>
+            <div class="info-list">
+              <div>
+                <span>Delivery</span>
+                <strong>Today, 4:30 PM</strong>
+              </div>
+              <div>
+                <span>Origin</span>
+                <strong>Local farm</strong>
+              </div>
+              <div>
+                <span>Calories</span>
+                <strong>230 / serving</strong>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <section class="similar-section" aria-labelledby="similar-title">
+          <div class="section-heading">
+            <h2 id="similar-title">You may also like</h2>
+            <a href="#">All Products <span aria-hidden="true">⟶</span></a>
+          </div>
+
+          <div class="similar-grid">
+            <article class="product-card">
+              <div class="mini-art mint-art">🥕</div>
+              <span class="card-tag">Fresh</span>
+              <h3>Farm Veggie Mix</h3>
+              <div class="card-meta">
+                <strong>$15.40</strong>
+                <button type="button" aria-label="Add Farm Veggie Mix to cart">+</button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="mini-art yellow-art">🍋</div>
+              <span class="card-tag">Citrus</span>
+              <h3>Vitamin Citrus Box</h3>
+              <div class="card-meta">
+                <strong>$12.30</strong>
+                <button type="button" aria-label="Add Vitamin Citrus Box to cart">+</button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="mini-art green-art">🥑</div>
+              <span class="card-tag">Healthy</span>
+              <h3>Avocado Combo</h3>
+              <div class="card-meta">
+                <strong>$19.70</strong>
+                <button type="button" aria-label="Add Avocado Combo to cart">+</button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="mini-art cream-art">🍅</div>
+              <span class="card-tag">Premium</span>
+              <h3>Garden Tomato Pack</h3>
+              <div class="card-meta">
+                <strong>$14.10</strong>
+                <button type="button" aria-label="Add Garden Tomato Pack to cart">+</button>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
