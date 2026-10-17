@@ -1,137 +1,158 @@
-# DESIGN.md
+---
+version: alpha
+name: Farmart
+description: A friendly, practical grocery storefront for everyday shopping.
+colors:
+  primary: "#FF7417"
+  foreground: "#283342"
+  muted: "#788291"
+  canvas: "#FFFFFF"
+  neutral: "#F2F3F5"
+  promo-yellow: "#FFCC0B"
+  soft-warm: "#FFF8F1"
+  category-snacks: "#F4E7FF"
+  category-soup: "#FFFBEA"
+  category-soda: "#C9F9EF"
+  category-organic: "#DCFBEA"
+typography:
+  body:
+    fontFamily: Arial, Helvetica, sans-serif
+    fontSize: 13px
+    lineHeight: "1.5"
+  heading:
+    fontFamily: Arial, Helvetica, sans-serif
+    fontSize: 19px
+    fontWeight: "700"
+  utility:
+    fontFamily: Arial, Helvetica, sans-serif
+    fontSize: 11px
+    fontWeight: "600"
+rounded:
+  sm: 4px
+  md: 7px
+spacing:
+  sm: 4px
+  md: 12px
+  lg: 20px
+  section: 36px
+  container-max: 974px
+components:
+  button-primary:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.foreground}"
+    rounded: "{rounded.sm}"
+    height: 29px
+  button-secondary:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.foreground}"
+    rounded: "{rounded.sm}"
+    height: 29px
+  body-copy:
+    textColor: "{colors.foreground}"
+    typography: "{typography.body}"
+  utility-copy:
+    textColor: "{colors.muted}"
+    typography: "{typography.utility}"
+  promotion-neutral:
+    backgroundColor: "{colors.neutral}"
+    textColor: "{colors.foreground}"
+  promotion-highlight:
+    backgroundColor: "{colors.promo-yellow}"
+    textColor: "{colors.foreground}"
+  category-active:
+    backgroundColor: "{colors.soft-warm}"
+    textColor: "{colors.foreground}"
+  category-snacks:
+    backgroundColor: "{colors.category-snacks}"
+    textColor: "{colors.foreground}"
+  category-soup:
+    backgroundColor: "{colors.category-soup}"
+    textColor: "{colors.foreground}"
+  category-soda:
+    backgroundColor: "{colors.category-soda}"
+    textColor: "{colors.foreground}"
+  category-organic:
+    backgroundColor: "{colors.category-organic}"
+    textColor: "{colors.foreground}"
+---
 
-## 1. Product and audience
+## Overview
 
-- Product: Farmart storefront landing page for a modern grocery and household shopping experience.
-- Primary audience: value-conscious shoppers, families, and convenience-driven consumers buying everyday essentials online.
-- Core goal: help users discover categories quickly, browse featured offers, and feel confident that the store is fresh, practical, and trustworthy.
-- UX promise: simple navigation, strong category scanning, and approachable merchandising that feels warm and clean rather than luxury-heavy.
+Farmart is a grocery storefront for value-conscious shoppers, families, and
+people who want convenient access to everyday essentials. Help visitors find
+categories quickly, browse useful offers, and feel confident about shopping.
 
-## 2. Brand personality
+The brand is friendly, practical, natural, trustworthy, and energetic without
+being noisy. Keep the voice warm, direct, and reassuring. Favor everyday value
+and clear product information over luxury language.
 
-- Brand name: Farmart
-- Personality: friendly, practical, natural, trustworthy, energetic without feeling noisy.
-- Voice: warm, direct, and reassuring; product language should stay simple and useful.
-- Brand attributes: fresh, everyday, family-oriented, accessible, efficient.
-- Positioning: a grocery brand for real life—quick decisions, affordable value, and everyday essentials.
+## Colors
 
-## 3. Design principles
+Use a white canvas and deep slate foreground as the foundation. Farmart orange
+is the primary accent for actions and active states; the warm yellow supports
+promotions. Pale neutral and food-inspired tints provide quiet section and
+category backgrounds. The muted slate is for secondary labels, not essential
+instructions or other text that must stand out.
 
-- Clarity first: every section should read in a glance; labels and CTAs should be easy to understand.
-- Freshness over excess: favor bright, natural tones and clean layouts over dark, heavy luxury styling.
-- Utility-focused: the interface should prioritize speed and browsing efficiency over decorative complexity.
-- Warm confidence: combine approachable colors with firm structure so the store feels dependable.
-- Mobile-friendly simplicity: content should remain legible and navigable at small widths without visual overload.
+Use the deep slate foreground on the orange primary action color for small
+button labels to maintain readable contrast. Keep text and interactive states
+distinct from their backgrounds.
 
-## 4. Visual language
+## Typography
 
-- Overall aesthetic: light, airy, grocery-retail, and clean.
-- Style direction: bright neutral surfaces, vivid accent colors, crisp category blocks, and simple iconography.
-- The page should feel like an online grocery marketplace, not a premium lifestyle brand.
-- Visual motifs: natural produce references, food icons, and friendly illustrated cues (emoji-style) used sparingly for product and category cues.
+Use Arial, Helvetica, or a compatible sans-serif fallback. Body text is compact
+and readable; headings are bold and concise. Utility labels are small and
+secondary, with uppercase styling and increased tracking reserved for short
+eyebrows and navigation labels. Avoid decorative type treatments.
 
-### Color palette
+## Layout
 
-- Background: `#FFFFFF`
-- Foreground / text: `#283342`
-- Muted text: `#788291`
-- Accent orange: `#FF7417`
-- Support yellow: `#FFCC0B`
-- Light neutral: `#F2F3F5`
-- Border: `#ECEEF1`
-- Soft warm backgrounds: `#FFF8F1`, `#FFFBEA`, `#F4E7FF`, `#C9F9EF`, `#DCFBEA`
+Center the storefront in a content area with a maximum width of 974px and
+20px horizontal gutters. Keep a compact header with the brand at left, search
+near the center, and utility actions at right. Place the secondary navigation
+directly below it.
 
-### Imagery and icons
+Follow the header with a two-column promotional area, a browse-by-category
+section, and featured products or brands. Preserve clear grouping and
+consistent vertical rhythm. At tablet and mobile widths, reflow columns and
+navigation so labels, search, and actions remain legible and usable.
 
-- Use simple, cheerful, product-first visual cues: fruits, bakery items, beverage graphics, produce symbols, and packaging illustrations.
-- Prefer clean emoji-like or generative product-icon treatments over photorealistic photography unless a specific product art direction is added later.
-- Icons should remain lightweight and clearly readable at small sizes.
+## Elevation & Depth
 
-## 5. Layout and structure
+Keep surfaces mostly flat. Use borders and restrained background changes to
+separate controls and cards; do not rely on heavy shadows, gradients, or
+decorative depth effects.
 
-- Use a centered content container with a max width around `974px` and generous horizontal gutters.
-- Split the storefront into a clear sequence:
-  1. Header with logo, search, and utility actions
-  2. Category navigation row
-  3. Promotional hero band
-  4. Browse-by-category section
-  5. Featured brands or products section
-- Keep vertical rhythm consistent with generous whitespace between sections.
-- The primary structure should remain narrow and readable, with strong content grouping and low visual noise.
+## Shapes
 
-### Header
+Use compact 4px corners for buttons and controls, and 7px corners for cards.
+Category cards should remain uniform and tidy. Avoid oversized pills or
+ornamental shapes.
 
-- Top bar should feel compact and controlled, not oversized.
-- Left: brand mark plus store name.
-- Center: search bar with category selector and search field.
-- Right: phone number, account action, wishlist, cart, cart total.
-- The masthead should remain clear and functional, with little ornamentation and strong alignment.
+## Components
 
-### Navigation
+- **Header and navigation:** Keep the masthead aligned and functional. Make
+  “Shop All Category” the clear entry point, with compact secondary links.
+- **Search and controls:** Use subtle neutral borders, compact sizing, and
+  readable input text. Keep the category selector and search field visually
+  connected.
+- **Buttons:** Use orange for primary actions and white or pale surfaces for
+  secondary actions. Maintain clear labels and sufficient text contrast.
+- **Promotions:** Use concise offer labels, a clear message, and a product
+  illustration. Keep urgency helpful rather than aggressive.
+- **Category and product cards:** Use consistent spacing, lightweight
+  illustrations or emoji-style product cues, concise names, and restrained
+  hover changes.
+- **Badges:** Keep labels such as “Organic” or “20% Sale Off” short and
+  visually consistent.
 
-- Use a secondary navigation row beneath the header.
-- Include a prominent orange “Shop All Category” block for the category entry point.
-- Menu text should be compact, uppercase or small-caps style labels, and low-contrast for secondary items.
-- Hover state should emphasize orange and subtle color transitions.
+## Do's and Don'ts
 
-## 6. Typography
-
-- Use a clean sans-serif type system with a friendly but functional tone.
-- Base text should be compact and highly readable, with lightweight utility labeling and strong hierarchy.
-- Recommended typographic behavior:
-  - Headings: bold, compact, and visually confident
-  - Eyebrow labels: tiny uppercase labels with strong tracking and warm accent color
-  - Body text: compact, readable, and neutral
-  - Utility labels: small, dense, and low-contrast, often uppercase for navigation and controls
-- Keep text weights accessible and avoid over-styling; the interface should read like a practical commerce app, not a design magazine.
-
-## 7. Components
-
-### Buttons
-
-- Rounded rectangle buttons with subtle radius (`4px`), short height, and strong contrast.
-- Primary CTAs use the warm orange accent with white text.
-- Secondary CTAs use white or pale backgrounds for soft emphasis.
-- Buttons should convey direct action without extra decoration.
-
-### Cards
-
-- Category cards are rectangular, low-contrast, and uniform in size.
-- Product and feature cards use soft rounded corners (`7px`) and balanced internal spacing.
-- Hover states should lightly shift border color and apply a subtle warm highlight, not dramatic motion.
-
-### Search and form controls
-
-- Inputs and selects should be compact and subtle, bordered with neutral tones.
-- Keep fields easy to scan and highly legible on desktop and mobile.
-- Controls should retain a straightforward utility aesthetic rather than a glossy SaaS look.
-
-### Badges and labels
-
-- Use compact labels such as “Fresh Drink,” “Organic,” “20% Sale Off,” and other short promotional tags.
-- Eyebrow text should stay consistent in size and color to preserve the brand’s familiar grocery rhythm.
-
-## 8. Product merchandising and content patterns
-
-- Category navigation and promotional modules should be easy to scan in under a second.
-- Use two-column promotional sections with a clear focal message and product illustration.
-- Merchandising should prioritize freshness and urgency without feeling aggressive.
-- Featured categories and product blocks should be visually consistent and have a clear hierarchy:
-  - label
-  - product name
-  - supporting illustration or icon
-- Keep product cards lightweight and approachable, with no overbuilt columns or dense information layouts.
-
-## 9. Interaction, responsiveness, and implementation notes
-
-- Motion should be subtle and fast: prefer short hover transitions (`150ms`) and minimal animation.
-- Hover states should primarily change color, border, and background; avoid large scale or heavy transforms.
-- The design should be fully responsive across desktop, tablet, and small mobile widths.
-- Maintain strong readability of labels, search, and CTA elements at reduced widths.
-- Do not add excessive shadows, gradients, or luxury visual effects; the design should remain practical and trustworthy.
-- Prefer simple, maintainable CSS and component logic over complicated UI frameworks or decorative layers.
-- Default to a clear structure: static commerce layout, neutral typography, warm accent system, and restrained motion.
-
-## Final intent
-
-This storefront should feel like a real, modern grocery website: clean enough for daily use, warm enough to feel human, and practical enough to support high-volume browsing. The visual system is intentionally simple, readable, and efficient, so the product remains trustworthy and easy to shop.
+- Do favor simple, cheerful food and product illustrations over photorealistic
+  imagery unless a specific art direction calls for photography.
+- Do keep hover transitions fast (about 150ms) and limited to color, border, or
+  background changes.
+- Do keep the storefront responsive and easy to scan.
+- Don't use large transforms, heavy motion, excessive shadows, or luxury-heavy
+  styling.
+- Don't overload cards with dense information or decorative layers.

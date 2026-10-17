@@ -1,19 +1,22 @@
+import ProductCard from "./components/product-card";
+
 const categories = [
-  { icon: "🥦", name: <>Fruits &amp;<br />Vegetables</> },
-  { icon: "🍞", name: <>Breads &amp;<br />Sweets</>, active: true },
-  { icon: "🍤", name: <>Frozen<br />Seafoods</> },
-  { icon: "🥩", name: <>Raw Meats</> },
-  { icon: "🍷", name: <>Wines &amp;<br />Alcohol Drinks</> },
-  { icon: "☕", name: <>Coffees and<br />Teas</> },
-  { icon: "🥛", name: <>Milks and<br />Dairies</> },
-  { icon: "🐾", name: <>Pet Foods</> },
+  { icon: "🥦", name: "Fruits & Vegetables" },
+  { icon: "🍞", name: "Breads & Sweets", active: true },
+  { icon: "🍤", name: "Frozen Seafoods" },
+  { icon: "🥩", name: "Raw Meats" },
+  { icon: "🍷", name: "Wines & Alcohol Drinks" },
+  { icon: "☕", name: "Coffees and Teas" },
+  { icon: "🥛", name: "Milks and Dairies" },
+  { icon: "🐾", name: "Pet Foods" },
 ];
 
 const featured = [
-  { label: "SNACKS", name: "Popcorn", icon: "🍿", color: "lavender" },
-  { label: "ORGANIC", name: "Fresh soup", icon: "🍵", color: "cream" },
-  { label: "SODA CAN BOX", name: "Berry soda", icon: "🥤", color: "mint" },
-  { label: "ORGANIC", name: "Hot dog", icon: "🌭", color: "green" },
+  { label: "FRESH PRODUCE", name: "Fresh strawberries", icon: "🍓", color: "bg-soft-warm", href: "/products/fresh-strawberries" },
+  { label: "SNACKS", name: "Popcorn", icon: "🍿", color: "bg-category-snacks", href: "#categories" },
+  { label: "ORGANIC", name: "Fresh soup", icon: "🍵", color: "bg-category-soup", href: "#categories" },
+  { label: "SODA CAN BOX", name: "Berry soda", icon: "🥤", color: "bg-category-soda", href: "#categories" },
+  { label: "ORGANIC", name: "Hot dog", icon: "🌭", color: "bg-category-organic", href: "#categories" },
 ];
 
 const navItems = [
@@ -30,102 +33,114 @@ const navItems = [
 
 export default function Home() {
   return (
-    <main className="storefront">
-      <header className="site-header">
-        <div className="header-main page-width">
-          <a className="brand" href="#" aria-label="Farmart home">
-            <span className="brand-mark">🌾</span>
+    <main className="min-h-screen bg-canvas text-foreground">
+      <header className="border-b border-border bg-canvas">
+        <div className="page-width flex min-h-[46px] flex-wrap items-center justify-between gap-x-4 gap-y-3 py-2 md:flex-nowrap md:gap-7 md:py-0">
+          <a className="order-1 flex items-center gap-1.5 text-[15px] font-extrabold tracking-[-0.02em] text-foreground" href="#" aria-label="Farmart home">
+            <span className="text-[17px]">🌾</span>
             <span>Farmart</span>
           </a>
 
-          <form className="search" action="#">
+          <form className="order-3 flex h-[34px] w-full items-center overflow-hidden rounded-[var(--farmart-radius-control)] border border-border bg-canvas text-muted md:order-2 md:w-[min(450px,47%)]" action="#">
             <label className="sr-only" htmlFor="language">Search language</label>
-            <select id="language" defaultValue="all">
+            <select id="language" defaultValue="all" className="h-full w-[108px] border-r border-border bg-transparent px-2.5 text-[10px] font-semibold text-muted outline-none">
               <option value="all">ALL LANGUAGE</option>
               <option value="en">English</option>
             </select>
             <label className="sr-only" htmlFor="search-products">Search products</label>
-            <input id="search-products" name="q" placeholder="Search products..." />
-            <button className="search-button" type="submit" aria-label="Search">⌕</button>
+            <input id="search-products" name="q" placeholder="Search products..." className="h-full flex-1 border-0 bg-transparent px-2.5 text-[11px] text-foreground placeholder:text-muted focus:outline-none" />
+            <button className="h-full w-[34px] border-0 bg-transparent text-[23px] leading-none text-foreground" type="submit" aria-label="Search">⌕</button>
           </form>
 
-          <div className="header-actions">
-            <a className="phone" href="tel:88003326566">8 800 332 65-66</a>
-            <button className="icon-button" aria-label="Your account">👤</button>
-            <button className="icon-button notification" aria-label="Wishlist, 2 items">
-              ❤️<span>2</span>
+          <div className="order-2 flex items-center justify-end gap-2 whitespace-nowrap sm:gap-3 md:order-3">
+            <a className="hidden text-[11px] font-bold text-foreground sm:inline" href="tel:88003326566">8 800 332 65-66</a>
+            <button className="relative flex h-5 w-5 items-center justify-center bg-transparent text-[15px]" aria-label="Your account">👤</button>
+            <button className="relative flex h-5 w-5 items-center justify-center bg-transparent text-[15px]" aria-label="Wishlist, 2 items">
+              ❤️
+              <span className="absolute -right-1.5 -top-2 flex h-[14px] min-w-[14px] items-center justify-center rounded-full bg-primary text-[9px] font-bold leading-none text-foreground">2</span>
             </button>
-            <button className="icon-button notification cart-icon" aria-label="Cart, 3 items">
-              🛒<span>3</span>
+            <button className="relative flex h-5 w-5 items-center justify-center bg-transparent text-[15px]" aria-label="Cart, 3 items">
+              🛒
+              <span className="absolute -right-1.5 -top-2 flex h-[14px] min-w-[14px] items-center justify-center rounded-full bg-primary text-[9px] font-bold leading-none text-foreground">3</span>
             </button>
-            <strong className="cart-total">$3,099.00</strong>
+            <strong className="text-[11px] font-bold text-foreground">$3,099.00</strong>
           </div>
         </div>
 
-        <nav className="navigation">
-          <div className="page-width nav-inner">
-            <a className="all-categories" href="#categories">▦&nbsp; SHOP ALL CATEGORY</a>
-            <div className="nav-links">
-              {navItems.map((item) => <a href="#featured" key={item}>{item}</a>)}
+        <nav className="overflow-x-auto border-t border-border">
+          <div className="page-width flex min-h-[35px] w-max min-w-[974px] items-center gap-7 md:w-auto">
+            <a className="flex flex-none items-center justify-center self-stretch bg-primary px-4 text-center text-[10px] font-bold tracking-[0.02em] text-foreground" href="#categories">▦&nbsp; SHOP ALL CATEGORY</a>
+            <div className="flex flex-1 items-center justify-between gap-5 whitespace-nowrap text-[11px] text-foreground">
+              {navItems.map((item) => (
+                <a href="#featured" key={item} className="transition-colors duration-150 hover:text-primary">{item}</a>
+              ))}
             </div>
-            <a className="recently-viewed" href="#featured">◉ Recently Viewed</a>
+            <a className="whitespace-nowrap text-[11px] text-muted transition-colors duration-150 hover:text-primary" href="#featured">◉ Recently Viewed</a>
           </div>
         </nav>
       </header>
 
-      <div className="page-width page-content">
-        <section className="promotions" aria-label="Current promotions">
-          <article className="promo promo-drink">
-            <div className="promo-copy">
-              <span className="eyebrow">FRESH DRINK</span>
-              <h1>Active Summer With<br />Juice Milk 300ml</h1>
-              <p>New arrivals with natural fresh juice milk,<br className="desktop-break" /> customize the varieties.</p>
-              <a className="button button-orange" href="#featured">Shop Now</a>
+      <div className="page-width pb-12 pt-5">
+        <section className="grid gap-3 md:grid-cols-2" aria-label="Current promotions">
+          <article className="relative flex min-h-[194px] items-center overflow-hidden rounded-[var(--farmart-radius-card)] bg-neutral p-5 md:p-6">
+            <div className="relative z-10">
+              <span className="mb-1 block text-[9px] font-bold uppercase tracking-[0.12em] text-foreground">FRESH DRINK</span>
+              <h1 className="mb-2 text-[19px] font-extrabold leading-[1.22] tracking-[-0.04em] text-foreground">Active Summer With<br />Juice Milk 300ml</h1>
+              <p className="mb-3 text-[11px] leading-[1.45] text-muted">New arrivals with natural fresh juice milk,<br className="hidden md:block" /> customize the varieties.</p>
+              <a className="inline-flex h-[29px] items-center justify-center rounded-[var(--farmart-radius-control)] bg-primary px-3.5 text-[11px] font-bold text-foreground transition-colors duration-150 hover:bg-soft-warm" href="#featured">Shop Now</a>
             </div>
-            <span className="promo-art juice-art" aria-hidden="true">🧃</span>
+            <span className="pointer-events-none absolute bottom-2 right-5 text-[73px] leading-none -rotate-[7deg]" aria-hidden="true">🧃</span>
           </article>
-          <article className="promo promo-sale">
-            <div className="promo-copy">
-              <span className="eyebrow">SYNTHETIC GOODS</span>
-              <h2>20% SALE OFF</h2>
-              <p>Synthetic Goods<br />Net 2.0 Oz</p>
-              <a className="button button-light" href="#featured">Shop Now</a>
+
+          <article className="relative flex min-h-[194px] items-center overflow-hidden rounded-[var(--farmart-radius-card)] bg-promo-yellow p-5 md:p-6">
+            <div className="relative z-10">
+              <span className="mb-1 block text-[9px] font-bold uppercase tracking-[0.12em] text-foreground">SYNTHETIC GOODS</span>
+              <h2 className="mb-1.5 text-[24px] font-extrabold leading-[1.22] tracking-[-0.04em] text-foreground">20% SALE OFF</h2>
+              <p className="mb-3 text-[11px] leading-[1.65] text-foreground">Synthetic Goods<br />Net 2.0 Oz</p>
+              <a className="inline-flex h-[29px] items-center justify-center rounded-[var(--farmart-radius-control)] bg-canvas px-3.5 text-[11px] font-bold text-foreground transition-colors duration-150 hover:bg-soft-warm" href="#featured">Shop Now</a>
             </div>
-            <span className="promo-art box-art" aria-hidden="true">📦</span>
+            <span className="pointer-events-none absolute bottom-0 right-3 text-[84px] leading-none" aria-hidden="true">📦</span>
           </article>
         </section>
 
-        <section className="content-section categories-section" id="categories">
-          <div className="section-heading">
-            <h2>Browse by Category</h2>
-            <a href="#categories">All Categories <span aria-hidden="true">⟶</span></a>
+        <section className="mt-[var(--farmart-space-section)]" id="categories">
+          <div className="mb-3.5 flex items-center justify-between">
+            <h2 className="m-0 text-[14px] font-bold text-foreground">Browse by Category</h2>
+            <a href="#categories" className="text-[11px] text-muted transition-colors duration-150 hover:text-primary">All Categories <span aria-hidden="true">⟶</span></a>
           </div>
-          <div className="category-grid">
-            {categories.map((category, index) => (
+          <div className="grid grid-cols-2 gap-1.5 sm:grid-cols-4 lg:grid-cols-8">
+            {categories.map((category) => (
               <a
-                className={`category-card${category.active ? " category-active" : ""}`}
+                className={`group flex min-h-[78px] flex-col items-center justify-center gap-1.5 rounded-[var(--farmart-radius-card)] border px-2 text-center text-[10px] leading-[1.2] text-muted transition-colors duration-150 ${
+                  category.active
+                    ? "border-primary bg-soft-warm"
+                    : "border-border hover:border-primary hover:bg-soft-warm"
+                }`}
                 href="#featured"
-                key={index}
+                key={category.name}
               >
-                <span className="category-icon" aria-hidden="true">{category.icon}</span>
+                <span className="text-[21px] leading-none" aria-hidden="true">{category.icon}</span>
                 <span>{category.name}</span>
               </a>
             ))}
           </div>
         </section>
 
-        <section className="content-section featured-section" id="featured">
-          <div className="section-heading">
-            <h2>Featured Brands</h2>
-            <a href="#featured">All Brands <span aria-hidden="true">⟶</span></a>
+        <section className="mt-[var(--farmart-space-section)]" id="featured">
+          <div className="mb-3.5 flex items-center justify-between">
+            <h2 className="m-0 text-[14px] font-bold text-foreground">Featured Brands</h2>
+            <a href="#featured" className="text-[11px] text-muted transition-colors duration-150 hover:text-primary">All Brands <span aria-hidden="true">⟶</span></a>
           </div>
-          <div className="featured-grid">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
             {featured.map((item) => (
-              <a className={`featured-card ${item.color}`} href="#categories" key={item.name}>
-                <span className="featured-emoji" aria-hidden="true">{item.icon}</span>
-                <span className="eyebrow">{item.label}</span>
-                <strong>{item.name}</strong>
-              </a>
+              <ProductCard
+                colorClass={item.color}
+                href={item.href}
+                icon={item.icon}
+                key={item.name}
+                label={item.label}
+                name={item.name}
+              />
             ))}
           </div>
         </section>
