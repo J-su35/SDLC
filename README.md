@@ -20,6 +20,21 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Catalog API
+
+The storefront catalog is stored in SQLite at `data/farmart.sqlite`. The database and its WAL files are created automatically and ignored by Git; the initial categories and featured products are seeded on first use.
+
+- `GET /api/home` returns the homepage categories and featured products.
+- `GET /api/products?q=<term>` searches product names and labels (1–100 characters; maximum 50 results).
+- `GET /docs` returns the OpenAPI 3.1 specification.
+- `/mermaid.html` displays a Mermaid ER diagram of the current SQLite schema.
+
+The homepage reads the same SQLite catalog as these API routes, and its search form uses the product-search endpoint. Deployments need a writable, persistent filesystem for the SQLite database.
+
+## Backend tests
+
+Run `npm test` to execute the backend unit and integration tests. They use isolated in-memory SQLite databases and do not modify the local catalog.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

@@ -1,23 +1,8 @@
+import { Suspense } from "react";
+import { io } from "next/cache";
 import ProductCard from "./components/product-card";
-
-const categories = [
-  { icon: "🥦", name: "Fruits & Vegetables" },
-  { icon: "🍞", name: "Breads & Sweets", active: true },
-  { icon: "🍤", name: "Frozen Seafoods" },
-  { icon: "🥩", name: "Raw Meats" },
-  { icon: "🍷", name: "Wines & Alcohol Drinks" },
-  { icon: "☕", name: "Coffees and Teas" },
-  { icon: "🥛", name: "Milks and Dairies" },
-  { icon: "🐾", name: "Pet Foods" },
-];
-
-const featured = [
-  { label: "FRESH PRODUCE", name: "Fresh strawberries", icon: "🍓", color: "bg-soft-warm", href: "/products/fresh-strawberries" },
-  { label: "SNACKS", name: "Popcorn", icon: "🍿", color: "bg-category-snacks", href: "#categories" },
-  { label: "ORGANIC", name: "Fresh soup", icon: "🍵", color: "bg-category-soup", href: "#categories" },
-  { label: "SODA CAN BOX", name: "Berry soda", icon: "🥤", color: "bg-category-soda", href: "#categories" },
-  { label: "ORGANIC", name: "Hot dog", icon: "🌭", color: "bg-category-organic", href: "#categories" },
-];
+import ProductSearch from "./components/product-search";
+import { getHomePageData } from "@/lib/store";
 
 const navItems = [
   "Deals Today",
@@ -33,6 +18,25 @@ const navItems = [
 
 export default function Home() {
   return (
+    <Suspense
+      fallback={
+        <main className="min-h-screen bg-canvas text-foreground" aria-busy="true">
+          <div className="page-width py-8">
+            <p className="text-xs text-muted">Loading storefront…</p>
+          </div>
+        </main>
+      }
+    >
+      <HomePageContent />
+    </Suspense>
+  );
+}
+
+async function HomePageContent() {
+  await io();
+  const { categories, featuredProducts } = getHomePageData();
+
+  return (
     <main className="min-h-screen bg-canvas text-foreground">
       <header className="border-b border-border bg-canvas">
         <div className="page-width flex min-h-[46px] flex-wrap items-center justify-between gap-x-4 gap-y-3 py-2 md:flex-nowrap md:gap-7 md:py-0">
@@ -41,16 +45,7 @@ export default function Home() {
             <span>Farmart</span>
           </a>
 
-          <form className="order-3 flex h-[34px] w-full items-center overflow-hidden rounded-[var(--farmart-radius-control)] border border-border bg-canvas text-muted md:order-2 md:w-[min(450px,47%)]" action="#">
-            <label className="sr-only" htmlFor="language">Search language</label>
-            <select id="language" defaultValue="all" className="h-full w-[108px] border-r border-border bg-transparent px-2.5 text-[10px] font-semibold text-muted outline-none">
-              <option value="all">ALL LANGUAGE</option>
-              <option value="en">English</option>
-            </select>
-            <label className="sr-only" htmlFor="search-products">Search products</label>
-            <input id="search-products" name="q" placeholder="Search products..." className="h-full flex-1 border-0 bg-transparent px-2.5 text-[11px] text-foreground placeholder:text-muted focus:outline-none" />
-            <button className="h-full w-[34px] border-0 bg-transparent text-[23px] leading-none text-foreground" type="submit" aria-label="Search">⌕</button>
-          </form>
+          <ProductSearch />
 
           <div className="order-2 flex items-center justify-end gap-2 whitespace-nowrap sm:gap-3 md:order-3">
             <a className="hidden text-[11px] font-bold text-foreground sm:inline" href="tel:88003326566">8 800 332 65-66</a>
@@ -132,9 +127,9 @@ export default function Home() {
             <a href="#featured" className="text-[11px] text-muted transition-colors duration-150 hover:text-primary">All Brands <span aria-hidden="true">⟶</span></a>
           </div>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
-            {featured.map((item) => (
+            {featuredProducts.map((item) => (
               <ProductCard
-                colorClass={item.color}
+                colorClass={item.colorClass}
                 href={item.href}
                 icon={item.icon}
                 key={item.name}

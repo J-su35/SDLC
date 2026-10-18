@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Mermaid ER diagram of the current Farmart SQLite database schema."
+    />
+    <title>Farmart Database Diagram</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #283342;
+        background: #f7f8fa;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      header {
+        background: #fff;
+        border-bottom: 1px solid #eceef1;
+      }
+
+      .page {
+        width: min(1000px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        min-height: 58px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .brand {
+        font-size: 15px;
+        font-weight: 800;
+      }
+
+      .back {
+        color: #788291;
+        font-size: 12px;
+      }
+
+      main {
+        padding-top: 42px;
+        padding-bottom: 56px;
+      }
+
+      .eyebrow {
+        margin: 0 0 8px;
+        color: #788291;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(26px, 5vw, 38px);
+        letter-spacing: -0.04em;
+      }
+
+      .intro {
+        max-width: 660px;
+        margin: 12px 0 28px;
+        color: #697585;
+        font-size: 14px;
+        line-height: 1.65;
+      }
+
+      .card {
+        margin-top: 16px;
+        overflow: hidden;
+        border: 1px solid #e7e9ed;
+        border-radius: 7px;
+        background: #fff;
+      }
+
+      .card-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 16px 20px;
+        border-bottom: 1px solid #eceef1;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 14px;
+      }
+
+      .badge {
+        padding: 5px 9px;
+        border-radius: 4px;
+        background: #fff3e9;
+        color: #9c470c;
+        font-size: 10px;
+        font-weight: 700;
+      }
+
+      .diagram {
+        min-height: 240px;
+        display: grid;
+        place-items: center;
+        overflow-x: auto;
+        padding: 28px 16px;
+      }
+
+      .diagram svg {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .status {
+        margin: 0;
+        padding: 0 20px 16px;
+        color: #788291;
+        font-size: 11px;
+      }
+
+      .details {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        padding: 16px;
+      }
+
+      .detail {
+        padding: 14px;
+        border-radius: 4px;
+        background: #f7f8fa;
+      }
+
+      .detail strong {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 12px;
+      }
+
+      .detail p {
+        margin: 0;
+        color: #697585;
+        font-size: 11px;
+        line-height: 1.6;
+      }
+
+      .source {
+        margin: 0;
+        overflow-x: auto;
+        padding: 18px 20px;
+        background: #283342;
+        color: #f5f7fa;
+        font: 12px/1.7 Consolas, "Courier New", monospace;
+        white-space: pre;
+      }
+
+      @media (max-width: 600px) {
+        .details {
+          grid-template-columns: 1fr;
+        }
+
+        main {
+          padding-top: 30px;
+        }
+
+        .diagram {
+          justify-content: start;
+        }
+      }
+    </style>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <div class="page topbar">
+        <a class="brand" href="/">🌾 Farmart</a>
+        <a class="back" href="/">Back to storefront →</a>
+      </div>
+    </header>
+
+    <main class="page">
+      <p class="eyebrow">Data model · SQLite</p>
+      <h1>Database schema</h1>
+      <p class="intro">
+        Entity relationship diagram generated from the current Farmart SQLite
+        schema. It shows the catalog tables, column types, primary keys, and
+        the relationships declared in the database.
+      </p>
+
+      <section class="card" aria-labelledby="diagram-heading">
+        <div class="card-heading">
+          <h2 id="diagram-heading">Entity relationship diagram</h2>
+          <span class="badge">Mermaid ER</span>
+        </div>
+        <div
+          class="diagram"
+          id="diagram"
+          role="img"
+          aria-label="Entity relationship diagram of the categories and products tables"
+        ></div>
+        <p class="status" id="diagram-status" aria-live="polite">
+          Loading Mermaid diagram…
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="details-heading">
+        <div class="card-heading">
+          <h2 id="details-heading">Database notes</h2>
+        </div>
+        <div class="details">
+          <article class="detail">
+            <strong>categories · 8 rows</strong>
+            <p>
+              Primary key: <code>name</code>. <code>active</code> is restricted
+              to 0 or 1. No foreign keys reference this table.
+            </p>
+          </article>
+          <article class="detail">
+            <strong>products · 5 rows</strong>
+            <p>
+              Primary key: <code>id</code>. <code>price_cents</code> is
+              nullable. <code>is_featured</code> is restricted to 0 or 1.
+            </p>
+          </article>
+          <article class="detail">
+            <strong>Index · products_name_search</strong>
+            <p>
+              Non-unique index on <code>products.name COLLATE NOCASE</code>
+              for case-insensitive product-name lookup.
+            </p>
+          </article>
+          <article class="detail">
+            <strong>Relationships</strong>
+            <p>
+              The current schema declares no foreign-key relationships between
+              categories and products.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="source-heading">
+        <div class="card-heading">
+          <h2 id="source-heading">Mermaid source</h2>
+        </div>
+        <pre class="source"><code id="mermaid-source"></code></pre>
+      </section>
+    </main>
+
+    <script>
+      const diagramSource = `erDiagram
+    CATEGORIES {
+        TEXT name PK
+        TEXT icon
+        INTEGER active "NOT NULL DEFAULT 0 CHECK 0 OR 1"
+    }
+
+    PRODUCTS {
+        TEXT id PK
+        TEXT label
+        TEXT name "NOT NULL"
+        TEXT icon
+        TEXT color_class
+        TEXT href
+        INTEGER price_cents "NULLABLE"
+        INTEGER is_featured "NOT NULL DEFAULT 0 CHECK 0 OR 1"
+    }`;
+
+      const sourceElement = document.getElementById("mermaid-source");
+      const diagramElement = document.getElementById("diagram");
+      const statusElement = document.getElementById("diagram-status");
+      sourceElement.textContent = diagramSource;
+      diagramElement.textContent = diagramSource;
+
+      window.addEventListener("load", async () => {
+        if (!window.mermaid) {
+          statusElement.textContent =
+            "The Mermaid renderer could not be loaded. The Mermaid source is available below.";
+          return;
+        }
+
+        window.mermaid.initialize({
+          startOnLoad: false,
+          theme: "base",
+          themeVariables: {
+            primaryColor: "#fff8f1",
+            primaryTextColor: "#283342",
+            primaryBorderColor: "#ff7417",
+            lineColor: "#788291",
+            secondaryColor: "#f2f3f5",
+            tertiaryColor: "#ffffff",
+            fontFamily: "Arial, Helvetica, sans-serif",
+          },
+        });
+
+        try {
+          await window.mermaid.run({ nodes: [diagramElement] });
+          statusElement.textContent =
+            "Schema snapshot: 2 tables, 11 columns, 0 declared foreign-key relationships.";
+        } catch {
+          statusElement.textContent =
+            "The Mermaid source is available below, but the diagram could not be rendered.";
+        }
+      });
+    </script>
+  </body>
+</html>
