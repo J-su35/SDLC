@@ -51,44 +51,67 @@ function getCommand(args) {
 }
 
 function getBlockReason(command) {
-  const words = command.match(/"(?:\\.|[^"])*"|'(?:\\.|[^'])*'|&&|\|\||[;&|]|[^\s;&|]+/g) ?? [];
-  const isSeparator = (word) => [";", "&&", "||", "&", "|"].includes(word);
-  const basename = (word) => word.replace(/^["']|["']$/g, "").split(/[\\/]/).at(-1).toLowerCase();
-
-  for (let index = 0; index < words.length; index += 1) {
-    if (isSeparator(words[index])) continue;
-
-    const executable = basename(words[index]).replace(/\.exe$/, "");
-    if (executable === "rm") {
-      let recursive = false;
-      let force = false;
-      for (let next = index + 1; next < words.length && !isSeparator(words[next]); next += 1) {
-        const option = words[next].replace(/^["']|["']$/g, "");
-        if (option === "--") break;
-        if (option === "--recursive") recursive = true;
-        if (option === "--force") force = true;
-        if (/^-[^-]/.test(option)) {
-          recursive ||= option.slice(1).includes("r");
-          force ||= option.slice(1).includes("f");
-        }
-      }
-      if (recursive && force) return "Blocked recursive forced deletion (rm -rf).";
+  // Keep quoted arguments intact; only command boundaries start a new executable.
+  const tokens = command.match(/"(?:\\.|[^"])*"|'(?:\\.|[^'])*'|&&|\|\||[;&|\r\n]|[^\s;&|]+/g) ?? [];
+  let words = [];
+  for (const token of [...tokens, ";"]) {
+    if (![";", "&&", "||", "&", "|", "\r", "\n"].includes(token)) {
+      words.push(token.replace(/^["']|["']$/g, ""));
+      continue;
     }
 
-    if (executable === "git") {
-      let pushIndex = -1;
-      for (let next = index + 1; next < words.length && !isSeparator(words[next]); next += 1) {
-        if (words[next].replace(/^["']|["']$/g, "") === "push") {
-          pushIndex = next;
-          break;
-        }
+    const reason = getCommandBlockReason(words);
+    if (reason) return reason;
+    words = [];
+  }
+  return null;
+}
+
+function getCommandBlockReason(words) {
+  // Leading environment assignments are not the executable in a shell command.
+  while (/^[A-Za-z_][A-Za-z0-9_]*=/.test(words[0] ?? "")) words = words.slice(1);
+  const executable = (words[0] ?? "").split(/[\\/]/).at(-1).toLowerCase().replace(/\.exe$/, "");
+  const args = words.slice(1);
+  if (["sudo", "env", "command", "exec", "nohup", "xargs"].includes(executable)) {
+    let index = 0;
+    while (index < args.length && args[index].startsWith("-")) {
+      const option = args[index++];
+      if (option === "--") break;
+      if (
+        (executable === "sudo" && ["-u", "--user", "-g", "--group", "-h", "--host", "-p", "--prompt", "-C", "--close-from", "-T", "--command-timeout"].includes(option)) ||
+        (executable === "env" && ["-u", "--unset", "-C", "--chdir"].includes(option)) ||
+        (executable === "exec" && option === "-a") ||
+        (executable === "xargs" && ["-I", "-n", "--max-args", "-P", "--max-procs", "-L", "--max-lines", "-s", "--max-chars", "-E", "-d", "--delimiter", "-a", "--arg-file"].includes(option))
+      ) index += 1;
+    }
+    return getCommandBlockReason(args.slice(index));
+  }
+  if (executable === "rm") {
+    let recursive = false;
+    let force = false;
+    for (const option of args) {
+      if (option === "--") break;
+      recursive ||= option === "--recursive" || /^-[^-]*[rR]/.test(option);
+      force ||= option === "--force" || /^-[^-]*f/.test(option);
+    }
+    if (recursive && force) return "Blocked recursive forced deletion (rm -rf).";
+  }
+
+  if (executable === "git") {
+    // Skip Git's global options, including options that consume the next word.
+    let index = 0;
+    while (index < args.length && args[index].startsWith("-")) {
+      if (["-C", "-c", "--git-dir", "--work-tree", "--namespace", "--config-env"].includes(args[index])) {
+        index += 2;
+      } else {
+        index += 1;
       }
-      if (pushIndex !== -1) {
-        for (let next = pushIndex + 1; next < words.length && !isSeparator(words[next]); next += 1) {
-          const option = words[next].replace(/^["']|["']$/g, "");
-          if (option === "--force" || option === "--force-with-lease" || option === "-f") {
-            return "Blocked forced git push.";
-          }
+    }
+    if (args[index] === "push") {
+      for (const option of args.slice(index + 1)) {
+        if (option === "--") break;
+        if (option === "--force" || /^--force-with-lease(?:=|$)/.test(option) || /^-[^-]*f/.test(option)) {
+          return "Blocked forced git push.";
         }
       }
     }

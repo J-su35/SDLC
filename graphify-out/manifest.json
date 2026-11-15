@@ -12,9 +12,9 @@
     "semantic_hash": ""
   },
   ".github/hooks/block-dangerous-commands.mjs": {
-    "mtime": 1794571638.5248778,
-    "seen": 1794573544.0034006,
-    "ast_hash": "2ef6809205d28c36d40730ab3d162bee",
+    "mtime": 1794737173.8243675,
+    "seen": 1794737226.6723654,
+    "ast_hash": "393730771d2afbd864f315356b8438b3",
     "semantic_hash": ""
   },
   ".mcp.json": {
@@ -48,9 +48,9 @@
     "semantic_hash": ""
   },
   "app/components/product-search.tsx": {
-    "mtime": 1792290249.7504683,
-    "seen": 1794573544.0034122,
-    "ast_hash": "bd819661fe462ab114792653249ba4f0",
+    "mtime": 1794737103.6969957,
+    "seen": 1794737226.6723785,
+    "ast_hash": "3855b0303f3344b501c0ed4915edb4d8",
     "semantic_hash": ""
   },
   "app/design/dialog-example.tsx": {
@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "eslint.config.mjs": {
-    "mtime": 1791473562.578034,
-    "seen": 1794573544.0034244,
-    "ast_hash": "dfa1f5f6a7037bf39dc510f30b180002",
+    "mtime": 1794741613.9932504,
+    "seen": 1794743094.353428,
+    "ast_hash": "052b8097125454c86055b770e4beb501",
     "semantic_hash": ""
   },
   "lib/api-responses.ts": {
@@ -108,21 +108,21 @@
     "semantic_hash": ""
   },
   "lib/store.ts": {
-    "mtime": 1792291379.1331446,
-    "seen": 1794573544.003428,
-    "ast_hash": "b81d56fbb2ee6e219266898b88709886",
+    "mtime": 1794741591.6504157,
+    "seen": 1794743094.3534396,
+    "ast_hash": "80b68cc66d78b3111d5265c03f83ed1c",
     "semantic_hash": ""
   },
   "next.config.ts": {
-    "mtime": 1791473589.028861,
-    "seen": 1794573544.0034297,
-    "ast_hash": "59ace8843cd0f04a4328b2189aead87b",
+    "mtime": 1794741591.8942883,
+    "seen": 1794743094.3534443,
+    "ast_hash": "e0468aefc6361e3771be6cbe52ea2c4b",
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1792291450.6088626,
-    "seen": 1794573544.003431,
-    "ast_hash": "0d5d6b93ec4eb38f15a8ea7292b7e27d",
+    "mtime": 1794742145.4348814,
+    "seen": 1794743094.3534489,
+    "ast_hash": "92c78aa2962e6549ff4fbcff34e12b93",
     "semantic_hash": ""
   },
   "tests/backend.test.ts": {
@@ -132,15 +132,15 @@
     "semantic_hash": ""
   },
   "tsconfig.json": {
-    "mtime": 1791473589.0324738,
-    "seen": 1794573544.0034344,
-    "ast_hash": "02fc19ad21338c2ab820a70136310db4",
+    "mtime": 1794741681.8647518,
+    "seen": 1794743094.3534896,
+    "ast_hash": "355c38f8a4846367b1035b5fe357ddcc",
     "semantic_hash": ""
   },
   ".github/copilot-instructions.md": {
-    "mtime": 1792333046.3493752,
-    "seen": 1794573544.003436,
-    "ast_hash": "9700dc6341daf29886590117f334cd59",
+    "mtime": 1794736330.6596587,
+    "seen": 1794736360.2976685,
+    "ast_hash": "acb74dd7107f0c13a3b862c3d63893e8",
     "semantic_hash": ""
   },
   ".github/skills/onboarding/SKILL.md": {
@@ -150,9 +150,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1794573427.6757288,
-    "seen": 1794573544.0034392,
-    "ast_hash": "c1efabcedcebc0492a5b1271475933b0",
+    "mtime": 1794740742.3130977,
+    "seen": 1794743094.3535218,
+    "ast_hash": "f4fe8468f7c8c51facc3b1b10ef41c51",
     "semantic_hash": ""
   },
   "DESIGN.md": {
@@ -162,9 +162,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1792291465.6484766,
-    "seen": 1794573544.0034425,
-    "ast_hash": "7811ccb4a5d34adf27ddecad63e5b8c8",
+    "mtime": 1794741682.0988283,
+    "seen": 1794743094.3535318,
+    "ast_hash": "7ca73cdb791df5ca5a6a4c731c2242b2",
     "semantic_hash": ""
   },
   "public/design/index.html": {
@@ -215,10 +215,76 @@
     "ast_hash": "a2760511c65806022ad20adf74370ff3",
     "semantic_hash": ""
   },
+  ".github/skills/code-review/SKILL.md": {
+    "mtime": 1794736330.134692,
+    "seen": 1794736360.2976727,
+    "ast_hash": "e0db9cdad64b3e1d07a863f1f353b3b6",
+    "semantic_hash": ""
+  },
+  "tests/command-hook.test.mjs": {
+    "mtime": 1794737174.058789,
+    "seen": 1794737226.672403,
+    "ast_hash": "ede4e3b32c109214cd4f619dac7a2089",
+    "semantic_hash": ""
+  },
+  ".agents/skills/grill-me/agents/openai.yaml": {
+    "mtime": 1794737438.1441126,
+    "seen": 1794743094.3532662,
+    "ast_hash": "aff7b6f7b10220e3b4537c42a2d08917",
+    "semantic_hash": ""
+  },
+  ".agents/skills/grilling/agents/openai.yaml": {
+    "mtime": 1794737438.1451132,
+    "seen": 1794743094.3532922,
+    "ast_hash": "d419e97c73f1073f678e284cfdd904dc",
+    "semantic_hash": ""
+  },
+  ".github/workflows/e2e.yml": {
+    "mtime": 1794741683.3265812,
+    "seen": 1794743094.353344,
+    "ast_hash": "db414a499e988441e88675badacf1991",
+    "semantic_hash": ""
+  },
+  "playwright.config.ts": {
+    "mtime": 1794741681.6339893,
+    "seen": 1794743094.353454,
+    "ast_hash": "4dd732911fa1fbd38b503a35f25efb4d",
+    "semantic_hash": ""
+  },
+  "skills-lock.json": {
+    "mtime": 1794737642.257815,
+    "seen": 1794743094.3534594,
+    "ast_hash": "e0a9f9db6bdc8261e124758a158464ee",
+    "semantic_hash": ""
+  },
+  "tests/e2e/catalog-api.spec.ts": {
+    "mtime": 1794741593.846012,
+    "seen": 1794743094.3534799,
+    "ast_hash": "24cbb66c43e1b24f892781ff8792e2d1",
+    "semantic_hash": ""
+  },
+  "tests/e2e/storefront.spec.ts": {
+    "mtime": 1794741613.7533927,
+    "seen": 1794743094.3534849,
+    "ast_hash": "085dec8637a872e0eb9758ac2d3a8898",
+    "semantic_hash": ""
+  },
+  ".agents/skills/grill-me/SKILL.md": {
+    "mtime": 1794737438.1431055,
+    "seen": 1794743094.353494,
+    "ast_hash": "51ba9306293963bb76680d5e41525aea",
+    "semantic_hash": ""
+  },
+  ".agents/skills/grilling/SKILL.md": {
+    "mtime": 1794737438.1451132,
+    "seen": 1794743094.3534987,
+    "ast_hash": "431eb49c22103e8bb3978eb45dfeb427",
+    "semantic_hash": ""
+  },
   "package-lock.json": {
-    "mtime": 1792292537.3033154,
-    "seen": 1794573544.003456,
-    "ast_hash": "73651c11379218a5c1a11bdf67ee9660",
+    "mtime": 1794742145.6238985,
+    "seen": 1794743094.3535826,
+    "ast_hash": "d8099e3d9f09285eb7c47f33a2d51921",
     "semantic_hash": ""
   }
 }

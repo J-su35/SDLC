@@ -92,7 +92,7 @@ export default function ProductSearch() {
       </form>
       {(loading || error || results) && (
         <div
-          className="absolute z-20 mt-1 max-h-72 w-[min(450px,calc(100vw-40px))] overflow-y-auto rounded-[var(--farmart-radius-card)] border border-border bg-canvas p-2 shadow-sm md:w-[min(450px,47%)]"
+          className="absolute z-20 mt-1 max-h-72 w-full overflow-y-auto rounded-[var(--farmart-radius-card)] border border-border bg-canvas p-2 shadow-sm"
           aria-live="polite"
         >
           {loading && <p className="p-2 text-xs text-muted">Searching products…</p>}

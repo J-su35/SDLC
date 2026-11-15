@@ -1,0 +1,21 @@
+{
+  "0": "package.json",
+  "1": "next",
+  "2": "initializeCatalog",
+  "3": "store.ts",
+  "4": "compilerOptions",
+  "5": "DESIGN.md",
+  "6": "design/page.tsx",
+  "7": "with",
+  "8": "block-dangerous-commands.mjs",
+  "9": "scripts",
+  "10": "playwright",
+  "11": "AGENTS.md",
+  "12": "docs/route.ts",
+  "13": "dependencies",
+  "14": "command-hook.test.mjs",
+  "15": "interface",
+  "16": "interface",
+  "17": "grill-me/SKILL.md",
+  "18": "grilling/SKILL.md"
+}

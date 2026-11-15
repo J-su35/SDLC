@@ -39,9 +39,10 @@ function getDatabase() {
     return globalForStore.farmartDatabase;
   }
 
-  const dataDirectory = path.join(process.cwd(), "data");
-  const filename = path.join(dataDirectory, "farmart.sqlite");
-  mkdirSync(path.dirname(filename), { recursive: true });
+  const filename = process.env.FARMART_DATABASE_PATH ?? path.join(process.cwd(), "data", "farmart.sqlite");
+  if (filename !== ":memory:") {
+    mkdirSync(path.dirname(filename), { recursive: true });
+  }
   const database = new Database(filename);
   initializeCatalog(database);
 

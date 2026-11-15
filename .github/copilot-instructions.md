@@ -36,4 +36,5 @@
 - `better-sqlite3` is a native dependency; on Windows, installation can require matching native prebuild support or Visual Studio C++ build tools.
 - For Next.js API or file-convention changes, read the root `AGENTS.md` and the relevant guide in `node_modules/next/dist/docs/` before coding. This repo is using Next.js 16 and may differ from older conventions or docs.
 - For newcomer orientation or setup, follow `.github/skills/onboarding/SKILL.md`.
+- For code reviews of pull requests or local changes, follow `.github/skills/code-review/SKILL.md`.
 - The repo already includes a Playwright MCP config in `.mcp.json` for browser automation and page verification where needed.

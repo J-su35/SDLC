@@ -35,6 +35,40 @@ The homepage reads the same SQLite catalog as these API routes, and its search f
 
 Run `npm test` to execute the backend unit and integration tests. They use isolated in-memory SQLite databases and do not modify the local catalog.
 
+## End-to-end regression tests
+
+Install dependencies with `npm ci`, then install the test browser once:
+
+```bash
+npx playwright install chromium
+npm run test:e2e
+```
+
+Playwright builds and starts the production app on `http://127.0.0.1:3100`
+and stops it after the run. Keep that port free; the suite deliberately refuses
+to reuse an existing server. It uses `.next-e2e` for build output and a seeded
+in-memory SQLite catalog (`FARMART_DATABASE_PATH=:memory:`), leaving the normal
+development server and `data/farmart.sqlite` untouched. A normal app run keeps
+using the local database unless `FARMART_DATABASE_PATH` is explicitly set.
+
+The suite runs on desktop and mobile Chromium. It covers catalog rendering,
+product navigation, real search/API validation, empty results, loading and
+server-error recovery, dropdown alignment, quantity bounds, price updates,
+and local purchase confirmation. The failure-recovery test intercepts one API
+response; normal search and catalog tests use the real HTTP routes and SQLite.
+Purchase confirmation is local UI state, not a persistent cart or checkout.
+
+Open the HTML report with `npx playwright show-report`. Failed browser tests
+save screenshots and traces in `test-results/`. To run one desktop test:
+
+```bash
+npm run test:e2e -- --project=desktop-chromium --grep "searches case-insensitively"
+```
+
+GitHub Actions runs lint, unit tests, and this E2E suite on pushes and pull
+requests, with failure artifacts uploaded for inspection. On Linux machines,
+use `npx playwright install --with-deps chromium` to install system libraries too.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
