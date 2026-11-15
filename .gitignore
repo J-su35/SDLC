@@ -13,6 +13,9 @@
 # testing
 /coverage
 
+# graphify cache
+/graphify-out/cache/
+
 # next.js
 /.next/
 /out/

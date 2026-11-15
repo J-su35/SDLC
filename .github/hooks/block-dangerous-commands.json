@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "hooks": {
+    "preToolUse": [
+      {
+        "type": "command",
+        "bash": "node .github/hooks/block-dangerous-commands.mjs",
+        "powershell": "node .github/hooks/block-dangerous-commands.mjs",
+        "cwd": ".",
+        "timeoutSec": 5
+      }
+    ]
+  }
+}
