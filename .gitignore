@@ -49,3 +49,6 @@ next-env.d.ts
 
 # hooks json
 /.codex/*
+
+#python
+*.py
