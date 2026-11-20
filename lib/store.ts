@@ -1,7 +1,8 @@
 import "server-only";
 
 import Database from "better-sqlite3";
-import { mkdirSync } from "node:fs";
+// import { mkdirSync } from "node:fs";
+import { existsSync } from "node:fs";
 import path from "node:path";
 
 export type Category = {
@@ -34,17 +35,35 @@ const globalForStore = globalThis as typeof globalThis & {
   farmartDatabase?: Database.Database;
 };
 
+// function getDatabase() {
+//   if (globalForStore.farmartDatabase) {
+//     return globalForStore.farmartDatabase;
+//   }
+
+//   const filename = process.env.FARMART_DATABASE_PATH ?? path.join(process.cwd(), "data", "farmart.sqlite");
+//   if (filename !== ":memory:") {
+//     mkdirSync(path.dirname(filename), { recursive: true });
+//   }
+//   const database = new Database(filename);
+//   initializeCatalog(database);
+
+//   globalForStore.farmartDatabase = database;
+//   return database;
+// }
+
 function getDatabase() {
   if (globalForStore.farmartDatabase) {
     return globalForStore.farmartDatabase;
   }
 
   const filename = process.env.FARMART_DATABASE_PATH ?? path.join(process.cwd(), "data", "farmart.sqlite");
-  if (filename !== ":memory:") {
-    mkdirSync(path.dirname(filename), { recursive: true });
+  if (filename !== ":memory:" && !existsSync(filename)) {
+    throw new Error(`SQLite database not found: ${filename}`);
   }
-  const database = new Database(filename);
-  initializeCatalog(database);
+  const database = new Database(filename, {
+    readonly: true,
+    fileMustExist: true,
+  });
 
   globalForStore.farmartDatabase = database;
   return database;
