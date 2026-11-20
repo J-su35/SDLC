@@ -13,6 +13,9 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  outputFileTracingIncludes: {
+      "/*": ["./data/farmart.sqlite"],
+    },
 };
 
 export default nextConfig;

@@ -48,5 +48,4 @@ yarn-error.log*
 next-env.d.ts
 
 # hooks json
-/.codex
 /.codex/*
