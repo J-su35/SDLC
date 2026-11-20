@@ -13,9 +13,11 @@
   "11": "AGENTS.md",
   "12": "docs/route.ts",
   "13": "dependencies",
-  "14": "command-hook.test.mjs",
+  "14": "update-project-skill.mjs",
   "15": "interface",
   "16": "interface",
   "17": "grill-me/SKILL.md",
-  "18": "grilling/SKILL.md"
+  "18": "grilling/SKILL.md",
+  "19": "Source modules",
+  "20": "Generated source snapshot"
 }

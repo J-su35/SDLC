@@ -1,10 +1,4 @@
 {
-  ".codex/hooks.json": {
-    "mtime": 1794573427.6849682,
-    "seen": 1794573544.0033867,
-    "ast_hash": "482ed59a7d3ef88e90be5fd0b4b60ae6",
-    "semantic_hash": ""
-  },
   ".github/hooks/block-dangerous-commands.json": {
     "mtime": 1794571635.92842,
     "seen": 1794573544.0033956,
@@ -108,21 +102,21 @@
     "semantic_hash": ""
   },
   "lib/store.ts": {
-    "mtime": 1794741591.6504157,
-    "seen": 1794743094.3534396,
-    "ast_hash": "80b68cc66d78b3111d5265c03f83ed1c",
+    "mtime": 1795182956.3525512,
+    "seen": 1795184071.033568,
+    "ast_hash": "301d54effd7315b67c8e560e4f82b627",
     "semantic_hash": ""
   },
   "next.config.ts": {
-    "mtime": 1794741591.8942883,
-    "seen": 1794743094.3534443,
-    "ast_hash": "e0468aefc6361e3771be6cbe52ea2c4b",
+    "mtime": 1795179835.803535,
+    "seen": 1795184071.03357,
+    "ast_hash": "874d89331cd29896074fdfddba390fb6",
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1794742145.4348814,
-    "seen": 1794743094.3534489,
-    "ast_hash": "92c78aa2962e6549ff4fbcff34e12b93",
+    "mtime": 1795184020.5371985,
+    "seen": 1795184071.033572,
+    "ast_hash": "e5df44928467b133c61e42a782e6a094",
     "semantic_hash": ""
   },
   "tests/backend.test.ts": {
@@ -279,6 +273,24 @@
     "mtime": 1794737438.1451132,
     "seen": 1794743094.3534987,
     "ast_hash": "431eb49c22103e8bb3978eb45dfeb427",
+    "semantic_hash": ""
+  },
+  "scripts/update-project-skill.mjs": {
+    "mtime": 1795184020.5361986,
+    "seen": 1795184071.0335763,
+    "ast_hash": "f9a4f6d6a891a4820fb783483e530a2b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/project-document/SKILL.md": {
+    "mtime": 1795184020.534205,
+    "seen": 1795184071.0335946,
+    "ast_hash": "f29925a97571c724302815d8c46c0f60",
+    "semantic_hash": ""
+  },
+  ".agents/skills/project-document/references/source-map.md": {
+    "mtime": 1795184044.4990966,
+    "seen": 1795184071.0335965,
+    "ast_hash": "7dc2e842de242c47f4630cfa5e3dc15b",
     "semantic_hash": ""
   },
   "package-lock.json": {
