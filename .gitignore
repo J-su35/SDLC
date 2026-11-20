@@ -25,7 +25,7 @@
 
 # production
 /build
-/data/*.sqlite*
+# /data/*.sqlite*
 
 # misc
 .DS_Store
@@ -46,3 +46,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# hooks json
+/.codex
+/.codex/*
